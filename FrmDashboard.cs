@@ -28,5 +28,16 @@ namespace TicariOtomasyn
             }
 
         }
+        FrmMusteriler frmMusteriler;
+        private void BtnMusteriler_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (frmMusteriler == null || frmMusteriler.IsDisposed)
+            {
+                frmMusteriler = new FrmMusteriler();
+                frmMusteriler.MdiParent = this;
+                frmMusteriler.Show();
+            }
+
+        }
     }
 }
