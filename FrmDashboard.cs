@@ -39,5 +39,15 @@ namespace TicariOtomasyn
             }
 
         }
+        FrmFirmalar frmFirmalar;
+        private void BtnFirmalar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (frmFirmalar == null || frmFirmalar.IsDisposed)
+            {
+                frmFirmalar = new FrmFirmalar();
+                frmFirmalar.MdiParent = this;
+                frmFirmalar.Show();
+            }
+        }
     }
 }

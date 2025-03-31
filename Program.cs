@@ -14,6 +14,9 @@ namespace TicariOtomasyn
         [STAThread]
         static void Main()
         {
+            //türkçe karakter sorunu yaşamamak için
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("tr-TR");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("tr-TR");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmDashboard());

@@ -33,7 +33,7 @@ namespace TicariOtomasyn
             TxtAd.Text = "";
             TxtMarka.Text = "";
             TxtModel.Text = "";
-            TxtYil.Text = "";
+            TxtYil.EditValue = DateTime.Now.Year;
             TxtAdet.Value = 0;
             TxtAFiyat.Text = "";
             TxtSFiyat.Text = "";
@@ -49,7 +49,7 @@ namespace TicariOtomasyn
             //boş alan kontrolü
             if (string.IsNullOrEmpty(TxtAd.Text) || string.IsNullOrEmpty(TxtMarka.Text) || string.IsNullOrEmpty(TxtModel.Text) || string.IsNullOrEmpty(TxtYil.Text) || string.IsNullOrEmpty(TxtAdet.Value.ToString()) || string.IsNullOrEmpty(TxtAFiyat.Text) || string.IsNullOrEmpty(TxtSFiyat.Text) || string.IsNullOrEmpty(TxtDetay.Text))
             {
-                XtraMessageBox.Show("Lütfen Boş Alanları Doldurunuz", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen Boş Alanları Doldurunuz", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             //ürün ekleme
@@ -114,9 +114,8 @@ namespace TicariOtomasyn
             Temizle();
         }
 
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            //seçilen satırın bilgilerini textboxlara aktarma
             DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
             if (dr != null)
             {
@@ -124,13 +123,12 @@ namespace TicariOtomasyn
                 TxtAd.Text = dr["UrunAd"].ToString();
                 TxtMarka.Text = dr["Marka"].ToString();
                 TxtModel.Text = dr["Model"].ToString();
-                TxtYil.Text = dr["Yil"].ToString();
+                TxtYil.EditValue = dr["Yil"].ToString();
                 TxtAdet.Value = int.Parse(dr["Adet"].ToString());
                 TxtAFiyat.Text = dr["AlisFiyat"].ToString();
                 TxtSFiyat.Text = dr["SatisFiyat"].ToString();
                 TxtDetay.Text = dr["Detay"].ToString();
             }
         }
-
     }
 }
