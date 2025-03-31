@@ -49,5 +49,15 @@ namespace TicariOtomasyn
                 frmFirmalar.Show();
             }
         }
+        FrmPersonel frmPersonel;
+        private void BtnPersoneller_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (frmPersonel == null || frmPersonel.IsDisposed)
+            {
+                frmPersonel = new FrmPersonel();
+                frmPersonel.MdiParent = this;
+                frmPersonel.Show();
+            }
+        }
     }
 }
