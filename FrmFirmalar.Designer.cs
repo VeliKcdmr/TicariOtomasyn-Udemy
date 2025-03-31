@@ -348,6 +348,7 @@
             this.TxtIl.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.TxtIl.Size = new System.Drawing.Size(179, 20);
             this.TxtIl.TabIndex = 12;
+            this.TxtIl.SelectedIndexChanged += new System.EventHandler(this.TxtIl_SelectedIndexChanged);
             // 
             // TxtIlce
             // 
